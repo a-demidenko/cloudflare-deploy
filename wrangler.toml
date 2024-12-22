@@ -1,0 +1,7 @@
+name = "hello-world-worker" # Имя вашего воркера
+main = "worker.js" # Основной файл скрипта
+compatibility_date = "2024-12-22" # Текущая дата
+type = "javascript" # Тип воркера (javascript, modules, wasm)
+
+# Учетная запись Cloudflare
+account_id = "ВАШ_ACCOUNT_ID" # Замените на ваш Cloudflare Account ID
