@@ -19,7 +19,10 @@ jobs:
           node-version: 18
 
       - name: Install Wrangler
-        run: npm install -g @cloudflare/wrangler
+        run: npm install -g wrangler
+
+      - name: Configure Wrangler with API token
+        run: echo "[Environment]" > ~/.wrangler/config.toml && echo "api_key=${{ secrets.CLOUDFLARE_API_TOKEN }}" >> ~/.wrangler/config.toml
 
       - name: Deploy to Cloudflare
         run: wrangler publish
