@@ -1,10 +1,11 @@
-# 🌐 Auto-Deploy to Cloudflare Workers via GitHub Actions / 🌍 Автодеплой на Cloudflare Workers через GitHub Actions
+# 🌐 Auto-Deploy to Cloudflare Workers via GitHub Actions 
+  🌍 Автодеплой на Cloudflare Workers через GitHub Actions
 
 [🇬🇧 Switch to English](#english) | [🇷🇺 Переключиться на русский](#русский)
 
 ---
 
-## 🇬🇧 English
+## English
 
 ### 🚀 Features
 - Automated deployment to Cloudflare Workers.
@@ -75,7 +76,7 @@ The GitHub Action will automatically deploy your script to Cloudflare Workers.
 Authentication Errors: Verify the secrets in your GitHub repository.
 Permission Issues: Check the API token's permissions in Cloudflare.
 
-## 🇷🇺 Русский
+## Русский
 
 
 🚀 Возможности
