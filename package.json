@@ -2,7 +2,7 @@
   "name": "my-cloudflare-worker",
   "version": "1.0.0",
   "description": "A simple Cloudflare Worker script",
-  "main": "worker.js",
+  "main": "index.js",
   "scripts": {
     "build": "echo 'Building project...' && exit 0",
     "deploy": "wrangler publish"
