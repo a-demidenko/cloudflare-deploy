@@ -18,7 +18,7 @@ export default {
             const container = document.querySelector('.animation-container');
             const textElement = document.createElement('div');
             textElement.className = 'text';
-            textElement.textContent = 'Hello World!';
+            textElement.textContent = 'Hello World! Привет Мир!';
             textElement.style.color = colors[Math.floor(Math.random() * colors.length)];
             textElement.style.animationDelay = \`\${Math.random() * 2}s\`;
             textElement.style.fontSize = \`\${Math.random() * 3 + 1}rem\`; // Размер текста
