@@ -1,7 +1,8 @@
-name = "my-cloudflare-worker"
-type = "javascript"
-account_id = "daf5cb28dfef9d3b8b583e5f7a8982c3"
-workers_dev = true
+name = "hello-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
 
-[site]
-bucket = "./public"
+[
+triggers
+]
+crons = [ ]
