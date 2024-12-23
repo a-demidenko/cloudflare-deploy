@@ -1,8 +1,21 @@
 {
-  "name": "hello-world-worker",
+  "name": "my-cloudflare-worker",
   "version": "1.0.0",
-  "private": true,
-  "devDependencies": {
-    "@cloudflare/wrangler": "^3.0.0"
-  }
+  "description": "A simple Cloudflare Worker script",
+  "main": "worker.js",
+  "scripts": {
+    "build": "echo 'Building project...' && exit 0",
+    "deploy": "wrangler publish"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@cloudflare/wrangler": "^2.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "javascript"
+  ]
 }
