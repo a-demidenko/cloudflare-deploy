@@ -2,7 +2,7 @@ name = "hello-worker"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
 
-[
-triggers
-]
-crons = [ ]
+# Удаляем пустой раздел triggers, так как он нам не нужен
+# Если нужны будут триггеры, их можно добавить в таком формате:
+# [triggers]
+# crons = ["0 0 * * *"]
