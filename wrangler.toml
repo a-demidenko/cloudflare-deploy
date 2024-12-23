@@ -1,11 +1,10 @@
-name = "hello-worker2"
+# Your worker name hello-worker.foo.workers.dev
+name = "hello-worker"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
 
 [site]
 bucket = "./src"
 
-# Удаляем пустой раздел triggers, так как он нам не нужен
-# Если нужны будут триггеры, их можно добавить в таком формате:
 # [triggers]
 # crons = ["0 0 * * *"]
