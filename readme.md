@@ -1,5 +1,5 @@
 
-# ⚙️ Deploy to Cloudflare Workers via GitHub Actions Автодеплой на Cloudflare Workers через GitHub Actions
+# ⚙️ Deploy to Cloudflare Workers via GitHub Actions | Автодеплой на Cloudflare Workers через GitHub Actions
 
 ---
 
