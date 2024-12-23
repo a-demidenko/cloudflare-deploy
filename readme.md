@@ -1,10 +1,9 @@
 # 🌐 Auto-Deploy to Cloudflare Workers via GitHub Actions Автодеплой на Cloudflare Workers через GitHub Actions
 
-[🇷🇺 Переключиться на русский](#русский)
-
 ---
 
 ## English
+[🇷🇺 Переключиться на русский](#русский)
 
 ### 🚀 Features
 - Automated deployment to Cloudflare Workers.
@@ -79,8 +78,9 @@ Permission Issues: Check the API token's permissions in Cloudflare.
 ---
 
 
-[🇬🇧 Switch to English](#english)
+
 ## Русский
+[🇬🇧 Switch to English](#english)
 
 ### 🚀 Возможности
 Автоматическое развертывание на Cloudflare Workers.
