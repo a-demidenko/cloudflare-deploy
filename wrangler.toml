@@ -1,5 +1,5 @@
-# Your worker name hello-worker.foo.workers.dev
-name = "hello-worker"
+# Your worker name hello-world-worker.your-subdomain.workers.dev
+name = "hello-world-worker"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
 
