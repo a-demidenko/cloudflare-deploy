@@ -5,7 +5,6 @@ compatibility_date = "2024-01-01"
 
 [site]
 bucket = "./src"
-entry-point = "workers-site"  # Важно для KV-asset-handler
 
 # [triggers]
 # crons = ["0 0 * * *"]
