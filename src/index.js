@@ -5,19 +5,21 @@ const assetManifest = JSON.parse(manifestJSON);
 
 export default {
   async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+
     try {
-      // Проверяем, запрашивается ли статический файл
-      const asset = await getAssetFromKV(
-        {
-          request,
-          env,
-          waitUntil: ctx.waitUntil.bind(ctx),
-        },
+      // Попытка отдать статический файл
+      return await getAssetFromKV(
+        { request, env, waitUntil: ctx.waitUntil.bind(ctx) },
         { ASSET_MANIFEST: assetManifest }
       );
-      return asset;
-    } catch {
-      // Если запрос не к статическому файлу, возвращаем HTML
+    } catch (e) {
+      // Если запрос не на статический файл, отдаем HTML
+      if (url.pathname !== "/") {
+        console.error(`Asset not found: ${url.pathname}`, e);
+      }
+
+      // Возвращаем HTML-код страницы
       const html = `
         <!DOCTYPE html>
         <html lang="en">
@@ -53,8 +55,3 @@ export default {
           </script>
         </body>
         </html>
-      `;
-      return new Response(html, { headers: { 'Content-Type': 'text/html' } });
-    }
-  },
-};
