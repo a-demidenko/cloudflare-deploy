@@ -7,21 +7,21 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+    // Попытка отдать статический файл
     try {
-      // Попытка отдать статический файл
       return await getAssetFromKV(
         { request, env, waitUntil: ctx.waitUntil.bind(ctx) },
         { ASSET_MANIFEST: assetManifest }
       );
     } catch (e) {
-      // Если запрос не на статический файл, отдаем HTML
+      // Если файл не найден, отдаем HTML
       if (url.pathname !== "/") {
         console.error(`Asset not found: ${url.pathname}`, e);
       }
 
       // Динамическое получение путей для favicon и image из манифеста
-      const favicon = assetManifest["favicon.ico"] || "favicon.ico"; // если файл не найден, используем исходное имя
-      const image = assetManifest["image.jpg"] || "image.jpg";       // аналогично для изображения
+      const favicon = assetManifest["favicon.ico"] || "favicon.ico";
+      const image = assetManifest["image.jpg"] || "image.jpg";
 
       // Возвращаем HTML-код страницы
       const html = `
