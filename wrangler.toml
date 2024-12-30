@@ -4,7 +4,7 @@ main = "src/index.js"
 compatibility_date = "2024-01-01"
 
 kv_namespaces = [
-  { binding = "ASSETS", id = "", preview_id = "" }
+  { binding = "ASSETS", id = "e5c092e9c8ff42c2bef41dd364423322", preview_id = "e5c092e9c8ff42c2bef41dd364423322" }
 ]
 
 [site]
