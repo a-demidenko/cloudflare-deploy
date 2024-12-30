@@ -1,37 +1,33 @@
-export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
+const MIME_TYPES = {
+  'css': 'text/css',
+  'jpg': 'image/jpeg',
+  'ico': 'image/x-icon'
+};
 
-    // Проверяем, если запрашиваются файлы favicon или image
-    if (url.pathname === "/favicon.ico") {
-      // Получаем файл favicon из KV
-      const favicon = await env.MY_KV_NAMESPACE.get("favicon.ico", { type: "arrayBuffer" });
-      if (favicon) {
-        return new Response(favicon, {
-          headers: {
-            "Content-Type": "image/x-icon",
-            "Cache-Control": "public, max-age=86400", // Кэшируем на 1 день
-          },
-        });
-      }
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  const url = new URL(request.url);
+  const path = url.pathname;
+
+  // Serve static files
+  if (path !== '/') {
+    const extension = path.split('.').pop();
+    const key = path.substring(1); // Remove leading slash
+    const asset = await ASSETS.get(key, 'arrayBuffer');
+    
+    if (asset) {
+      return new Response(asset, {
+        headers: { 'content-type': MIME_TYPES[extension] || 'text/plain' }
+      });
     }
+  }
 
-    if (url.pathname === "/image.jpg") {
-      // Получаем файл изображения из KV
-      const image = await env.MY_KV_NAMESPACE.get("image.jpg", { type: "arrayBuffer" });
-      if (image) {
-        return new Response(image, {
-          headers: {
-            "Content-Type": "image/jpeg",
-            "Cache-Control": "public, max-age=86400", // Кэшируем на 1 день
-          },
-        });
-      }
-    }
-
-    // Отдаем статический HTML
-    const html = `
-      <!DOCTYPE html>
+  // Serve HTML
+  const html = `
+	 <!DOCTYPE html>
       <html lang="en">
       <head>
         <meta charset="UTF-8">
@@ -93,10 +89,8 @@ export default {
         </script>
       </body>
       </html>
-    `;
-
-    return new Response(html, {
-      headers: { "Content-Type": "text/html" },
-    });
-  }
-};
+	`; // Your existing HTML
+  return new Response(html, {
+    headers: { 'content-type': 'text/html;charset=UTF-8' }
+  });
+}
