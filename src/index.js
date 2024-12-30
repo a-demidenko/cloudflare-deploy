@@ -19,6 +19,10 @@ export default {
         console.error(`Asset not found: ${url.pathname}`, e);
       }
 
+      // Динамическое получение путей для favicon и image из манифеста
+      const favicon = assetManifest["favicon.ico"] || "favicon.ico"; // если файл не найден, используем исходное имя
+      const image = assetManifest["image.jpg"] || "image.jpg";       // аналогично для изображения
+
       // Возвращаем HTML-код страницы
       const html = `
         <!DOCTYPE html>
@@ -28,10 +32,10 @@ export default {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Animated Hello World</title>
           <link rel="stylesheet" href="/styles.css">
-          <link rel="icon" href="/favicon.ico" type="image/x-icon">
+          <link rel="icon" href="/${favicon}" type="image/x-icon">
           <style>
             body {
-              background-image: url('/image.jpg');
+              background-image: url('/${image}');
               background-size: cover;
               background-position: center;
               background-attachment: fixed;
