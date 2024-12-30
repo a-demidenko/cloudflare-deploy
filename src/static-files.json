@@ -1,0 +1,17 @@
+[
+  {
+    "key": "styles.css",
+    "value": "./src/styles.css",
+    "path": "./src/styles.css"
+  },
+  {
+    "key": "image.jpg",
+    "value": "./src/image.jpg",
+    "path": "./src/image.jpg"
+  },
+  {
+    "key": "favicon.ico",
+    "value": "./src/favicon.ico",
+    "path": "./src/favicon.ico"
+  }
+]
